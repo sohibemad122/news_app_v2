@@ -3,16 +3,17 @@ import 'package:flutter/material.dart';
 import 'package:news_app/news_app.dart';
 
 void main() async {
-    WidgetsFlutterBinding.ensureInitialized();
+  WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
-  
+
   runApp(
     EasyLocalization(
       supportedLocales: [Locale('en'), Locale('ar')],
-      path: 'assets/translations', 
-      fallbackLocale: Locale('ar'),
-      child: NewsApp()
+      path: 'assets/translations',
+      fallbackLocale: Locale('en'),
+      startLocale: Locale('en'),
+      saveLocale: false,
+      child: const NewsApp(),
     ),
   );
 }
-
